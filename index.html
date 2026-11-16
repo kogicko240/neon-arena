@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Уклонение на Арене</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-wrapper">
+    <!-- Верхняя панель: таймер, рекорд и шкала времени -->
+    <header class="hud">
+      <div class="stats-row">
+        <div class="stat-box">
+          <span class="label">ВРЕМЯ</span>
+          <span id="time-display" class="value">0.00 с</span>
+        </div>
+        <div class="stat-box">
+          <span class="label">УРОВЕНЬ УГРОЗЫ</span>
+          <span id="wave-display" class="value accent">1</span>
+        </div>
+        <div class="stat-box">
+          <span class="label">РЕКОРД</span>
+          <span id="best-display" class="value">0.00 с</span>
+        </div>
+      </div>
+
+      <!-- Шкала времени выживания (заполняется каждые 10 секунд для повышения сложности) -->
+      <div class="time-bar-container" title="Прогресс до следующей волны ускорения">
+        <div id="time-bar-fill" class="time-bar-fill"></div>
+      </div>
+    </header>
+
+    <!-- Квадратная игровая арена -->
+    <main class="arena-container" id="arena-container">
+      <canvas id="game-canvas" width="540" height="540"></canvas>
+
+      <!-- Стартовый экран и экран проигрыша -->
+      <div id="overlay" class="overlay">
+        <h1 id="overlay-title">НЕОНОВАЯ АРЕНА</h1>
+        <p id="overlay-subtitle">Управляйте ядром с помощью курсора и уклоняйтесь от летящих снарядов.</p>
+        
+        <div id="final-score-box" class="final-score hidden">
+          Вы прожили: <strong id="final-time">0.00 с</strong>
+        </div>
+
+        <div class="difficulty-selector">
+          <button class="diff-btn active" data-diff="easy">Лёгкая</button>
+          <button class="diff-btn" data-diff="medium">Средняя</button>
+          <button class="diff-btn" data-diff="hard">Сложная</button>
+        </div>
+
+        <button id="start-btn" class="start-btn">ИГРАТЬ</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html> 
